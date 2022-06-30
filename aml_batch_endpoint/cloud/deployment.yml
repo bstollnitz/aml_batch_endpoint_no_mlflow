@@ -1,0 +1,13 @@
+$schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
+name: blue
+endpoint_name: endpoint-batch
+model: azureml:model-batch:1
+code_configuration:
+  code: ../src/
+  scoring_script: score.py
+environment:
+  conda_file: score-conda.yml
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
+compute: azureml:cluster-cpu
+mini_batch_size: 10
+output_file_name: predictions_pytorch.csv

@@ -1,0 +1,14 @@
+name: aml-batch-endpoint
+channels:
+  - anaconda
+  - pytorch
+  - conda-forge
+dependencies:
+  - python==3.9.10
+  - pytorch==1.11.0
+  - torchvision==0.12.0
+  - pillow==9.0.1
+  - pip
+  - pip:
+      - azureml-defaults
+  
