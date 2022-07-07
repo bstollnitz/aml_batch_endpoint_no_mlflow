@@ -30,7 +30,7 @@ curl --location --request POST $SCORING_URI \
         },
         \"outputData\": {
             \"uriFile\": {
-                \"uri\": \"azureml://subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/workspaces/$WORKSPACE/data/$DATASET_NAME/versions/$DATASET_VERSION/batch-endpoint-output\",
+                \"uri\": \"azureml://subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/workspaces/$WORKSPACE/datastores/workspaceblobstore/batch-endpoint-output\",
                 \"jobOutputType\": \"UriFile\",
             }
         },
