@@ -28,9 +28,11 @@ curl --location --request POST $SCORING_URI \
                 \"jobInputType\": \"UriFolder\",
             }
         },
-        \"outputDataset\": {
-            \"datastoreId\": \"/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores/workspaceblobstore\",
-            \"path\": \"$ENDPOINT_NAME/batch-endpoint-output\",
+        \"outputData\": {
+            \"uriFile\": {
+                \"uri\": \"azureml://subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/workspaces/$WORKSPACE/data/$DATASET_NAME/versions/$DATASET_VERSION/batch-endpoint-output\",
+                \"jobOutputType\": \"UriFile\",
+            }
         },
     }
 }"
