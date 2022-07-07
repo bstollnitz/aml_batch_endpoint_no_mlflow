@@ -67,3 +67,14 @@ Invoke the endpoint.
 ```
 az ml batch-endpoint invoke --name endpoint-batch --input test_data/images
 ```
+
+Invoke using a curl command.
+
+```
+az ml data create -f cloud/data-invoke-batch.yml
+```
+
+```
+chmod +x invoke.sh
+invoke.sh
+```
