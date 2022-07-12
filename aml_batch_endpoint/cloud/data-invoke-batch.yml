@@ -2,3 +2,4 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: data-invoke-batch
 path: "../test_data/images/"
 type: uri_folder
+
