@@ -15,8 +15,8 @@ from torchvision.transforms import ToTensor
 from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
 
-DATA_DIR = "aml_batch_endpoint/data"
-MODEL_DIR = "aml_batch_endpoint/model"
+DATA_DIR = "aml_batch_endpoint_no_mlflow/data"
+MODEL_DIR = "aml_batch_endpoint_no_mlflow/model"
 
 
 def load_train_val_data(

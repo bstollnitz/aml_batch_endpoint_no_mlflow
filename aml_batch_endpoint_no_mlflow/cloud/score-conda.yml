@@ -1,4 +1,4 @@
-name: aml-batch-endpoint
+name: aml-batch-endpoint-no-mlflow
 channels:
   - anaconda
   - pytorch

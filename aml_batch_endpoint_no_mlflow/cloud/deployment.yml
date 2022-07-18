@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
 name: blue
-endpoint_name: endpoint-batch
-model: azureml:model-batch:1
+endpoint_name: endpoint-batch-no-mlflow
+model: azureml:model-batch-no-mlflow:1
 code_configuration:
   code: ../src/
   scoring_script: score.py

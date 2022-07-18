@@ -34,7 +34,7 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate aml_batch_endpoint
+conda activate aml_batch_endpoint_no_mlflow
 ```
 
 
@@ -46,13 +46,13 @@ Open the `src/train.py` file and press F5. A `model` folder is created with the 
 # Deploy in the cloud
 
 ```
-cd aml_batch_endpoint
+cd aml_batch_endpoint_no_mlflow
 ```
 
 Create the model resource on Azure ML.
 
 ```
-az ml model create --path model --name model-batch --version 1
+az ml model create --path model --name model-batch-no-mlflow --version 1
 ```
 
 Create the endpoint.
@@ -65,16 +65,5 @@ az ml batch-deployment create -f cloud/deployment.yml --set-default
 Invoke the endpoint.
 
 ```
-az ml batch-endpoint invoke --name endpoint-batch --input test_data/images
-```
-
-Invoke using a curl command.
-
-```
-az ml data create -f cloud/data-invoke-batch.yml
-```
-
-```
-chmod +x invoke.sh
-invoke.sh
+az ml batch-endpoint invoke --name endpoint-batch-no-mlflow --input test_data/images
 ```
