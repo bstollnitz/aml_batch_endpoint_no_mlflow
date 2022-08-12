@@ -3,6 +3,7 @@
 import argparse
 import logging
 import os
+import numpy as np
 
 import torch
 from PIL import Image
@@ -45,59 +46,40 @@ def init():
 
 def run(mini_batch):
     logger.info("run(%s started: %s", mini_batch, {__file__})
-    transform = transforms.ToTensor()
 
-    tensor_images = None
+    images = []
     for image_path in mini_batch:
-        image = Image.open(image_path)
-        if tensor_images is None:
-            tensor_images = torch.empty(len(mini_batch), 1, image.height,
-                                        image.width)
-        tensor_image = transform(image).to(device)
-        tensor_images.add_(tensor_image)
+        with Image.open(image_path) as image:
+            x = np.array(image).reshape(1, -1) / 255.0
+            images.append(x)
 
-    x = DataLoader(TensorDataset(tensor_images))
-
-    predicted_indices = predict(device, x, model)
+    dataloader = DataLoader(images)
+    predicted_indices = predict(device, dataloader, model)
     predictions = [
         FashionMNIST.classes[predicted_index]
         for predicted_index in predicted_indices
     ]
 
+    # transform = transforms.ToTensor()
+
+    # tensor_images = None
+    # for image_path in mini_batch:
+    #     image = Image.open(image_path)
+    #     if tensor_images is None:
+    #         tensor_images = torch.empty(len(mini_batch), 1, image.height,
+    #                                     image.width)
+    #     tensor_image = transform(image).to(device)
+    #     tensor_images.add_(tensor_image)
+
+    # x = DataLoader(TensorDataset(tensor_images))
+
+    # predicted_indices = predict(device, x, model)
+    # predictions = [
+    #     FashionMNIST.classes[predicted_index]
+    #     for predicted_index in predicted_indices
+    # ]
+
     logging.info("Predictions: %s", predictions)
 
     logger.info("Run completed")
     return predictions
-
-
-# def main():
-#     logging.basicConfig(level=logging.INFO)
-#     device = "cuda" if torch.cuda.is_available() else "cpu"
-#     transform = transforms.ToTensor()
-#     images_path = "aml_batch_endpoint/test_data/images/"
-#     listing = os.listdir(images_path)
-#     tensor_images = None
-#     for image_path in listing:
-#         image = Image.open(images_path + image_path)
-#         if tensor_images is None:
-#             tensor_images = torch.empty(len(listing), 1, image.height,
-#                                         image.width)
-#         tensor_image = transform(image).to(device)
-#         tensor_images.add_(tensor_image)
-
-#     x = DataLoader(TensorDataset(tensor_images))
-
-#     model_path = "aml_batch_endpoint/model/weights.pth"
-#     model = NeuralNetwork().to(device)
-#     model.load_state_dict(torch.load(model_path, map_location=device))
-
-#     predicted_indices = predict(device, x, model)
-#     predictions = [
-#         FashionMNIST.classes[predicted_index]
-#         for predicted_index in predicted_indices
-#     ]
-
-#     logging.info("Predictions: %s", predictions)
-
-# if __name__ == "__main__":
-#     main()

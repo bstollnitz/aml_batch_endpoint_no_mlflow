@@ -2,10 +2,11 @@
 
 import torch
 from torch.utils.data import DataLoader
+from typing import List
 
 
 def predict(device: str, dataloader: DataLoader,
-            model: torch.nn.Module) -> None:
+            model: torch.nn.Module) -> List:
     """
     Makes a prediction for the whole dataset once.
     """
