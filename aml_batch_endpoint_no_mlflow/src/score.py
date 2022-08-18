@@ -7,8 +7,7 @@ import numpy as np
 
 import torch
 from PIL import Image
-from torchvision import transforms
-from torch.utils.data import DataLoader, TensorDataset
+from torch.utils.data import DataLoader
 from torchvision.datasets import FashionMNIST
 
 from neural_network import NeuralNetwork
@@ -59,25 +58,6 @@ def run(mini_batch):
         FashionMNIST.classes[predicted_index]
         for predicted_index in predicted_indices
     ]
-
-    # transform = transforms.ToTensor()
-
-    # tensor_images = None
-    # for image_path in mini_batch:
-    #     image = Image.open(image_path)
-    #     if tensor_images is None:
-    #         tensor_images = torch.empty(len(mini_batch), 1, image.height,
-    #                                     image.width)
-    #     tensor_image = transform(image).to(device)
-    #     tensor_images.add_(tensor_image)
-
-    # x = DataLoader(TensorDataset(tensor_images))
-
-    # predicted_indices = predict(device, x, model)
-    # predictions = [
-    #     FashionMNIST.classes[predicted_index]
-    #     for predicted_index in predicted_indices
-    # ]
 
     logging.info("Predictions: %s", predictions)
 
