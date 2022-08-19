@@ -112,7 +112,7 @@ def generate_json_for_azureml_from_images() -> None:
 def main():
     logging.basicConfig(level=logging.INFO)
 
-    generate_images(2)
+    generate_images(20)
     generate_csv_from_images()
     generate_json_from_images()
     generate_json_for_azureml_from_images()

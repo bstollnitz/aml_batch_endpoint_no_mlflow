@@ -38,15 +38,26 @@ conda activate aml_batch_endpoint_no_mlflow
 ```
 
 
-# Train locally
+# Training and inference on your development machine
 
-Open the `src/train.py` file and press F5. A `model` folder is created with the trained model.
+* Open the `src/train.py` file and press F5. A `model` folder is created with the trained model.
+* Open the `src/score_local.py` file and press F5. You should get a prediction similar to the following:
+
+```
+INFO:root:Predictions: ['Ankle boot', 'Pullover']
+```
 
 
 # Deploy in the cloud
 
 ```
 cd aml_batch_endpoint_no_mlflow
+```
+
+Create the CPU cluster.
+
+```
+az ml compute create -f cloud/cluster-cpu.yml
 ```
 
 Create the model resource on Azure ML.
