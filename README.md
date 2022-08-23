@@ -2,6 +2,12 @@
 
 This project shows how to train a Fashion MNIST model locally, and how to deploy it using a batch endpoint. 
 
+
+## Blog post
+
+To learn more about the code in this repo, check out the accompanying blog post: https://bea.stollnitz.com/blog/aml-batch-endpoint-no-mlflow/
+
+
 ## Azure setup
 
 * You need to have an Azure subscription. You can get a [free subscription](https://azure.microsoft.com/en-us/free?WT.mc_id=aiml-69852-bstollnitz) to try it out.
@@ -78,3 +84,9 @@ Invoke the endpoint.
 ```
 az ml batch-endpoint invoke --name endpoint-batch-no-mlflow --input test_data/images
 ```
+
+
+## Related resources
+
+* [Azure ML endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/concept-endpoints?WT.mc_id=aiml-69852-bstollnitz)
+* [Batch endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-batch-endpoint?WT.mc_id=aiml-69852-bstollnitz)
