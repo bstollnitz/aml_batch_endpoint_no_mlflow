@@ -59,7 +59,7 @@ def run(mini_batch):
         for predicted_index in predicted_indices
     ]
 
-    logging.info("Predictions: %s", predictions)
+    logger.info("Predictions: %s", predictions)
 
     logger.info("Run completed")
     return predictions
