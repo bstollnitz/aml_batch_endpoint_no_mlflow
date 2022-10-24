@@ -1,7 +1,5 @@
 """Utilities that help with scoring neural networks."""
 
-from typing import Optional
-
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
