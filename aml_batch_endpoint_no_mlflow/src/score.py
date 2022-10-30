@@ -9,9 +9,9 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision.datasets import FashionMNIST
 
-from .dataset import FashionMNISTDatasetFromImages
-from .neural_network import NeuralNetwork
-from .utils_score_nn import predict
+from dataset import FashionMNISTDatasetFromImages
+from neural_network import NeuralNetwork
+from utils_score_nn import predict
 
 
 @dataclass

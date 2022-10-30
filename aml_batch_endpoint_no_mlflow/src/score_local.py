@@ -7,9 +7,9 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision.datasets import FashionMNIST
 
-from .dataset import FashionMNISTDatasetFromImages
-from .neural_network import NeuralNetwork
-from .utils_score_nn import predict
+from dataset import FashionMNISTDatasetFromImages
+from neural_network import NeuralNetwork
+from utils_score_nn import predict
 
 IMAGES_DIR = "aml_batch_endpoint_no_mlflow/test_data/images/"
 MODEL_DIR = "aml_batch_endpoint_no_mlflow/model/weights.pth"

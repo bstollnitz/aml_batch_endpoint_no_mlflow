@@ -11,8 +11,8 @@ from torch.utils.data import DataLoader, random_split
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
-from .neural_network import NeuralNetwork
-from .utils_train_nn import evaluate, fit
+from neural_network import NeuralNetwork
+from utils_train_nn import evaluate, fit
 
 DATA_DIR = "aml_batch_endpoint_no_mlflow/data"
 MODEL_DIR = "aml_batch_endpoint_no_mlflow/model"
